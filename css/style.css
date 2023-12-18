@@ -16,7 +16,6 @@ b{
 }
 body {
   background-image: url(https://cdn.wallpapersafari.com/64/2/I9VaUA.gif);
-  
   background-repeat: no-repeat;
   background-size: cover;
   display: block;
@@ -231,6 +230,7 @@ p {
   .navigation-menu header{
     min-width: 240px;
     width: 80%;
+    
   }
   .navigation-menu::before {
     width: 110%;
@@ -240,11 +240,18 @@ p {
 @media only screen and (max-width: 480px) {
   .navigation-menu  {
     
+    text-align: center;
+    background-color: black;
     min-width: 240px;
-    width: 80%;
+    width: 100%;
   }
   .navigation-menu::before {
     transform: translate(-50%, -50%) rotate(45deg);
+  }
+  .menu-list__item{
+    text-align: center;
+    position: relative;
+    left: 45%;
   }
 }
 a{
