@@ -15,17 +15,15 @@ b{
   text-decoration: underline;
 }
 body {
-  background-image: url(https://wallpapercave.com/wp/wp2757874.gif);
+  background-image: url(https://cdn.wallpapersafari.com/64/2/I9VaUA.gif);
   
   background-repeat: no-repeat;
   background-size: cover;
   display: block;
   margin:0px;
-  font-family:'Roboto';
   text-align:center;
   color: #fff;
   font-size: 2.4rem;
-  height: 100vh;
 }
 
 
@@ -37,15 +35,12 @@ body {
   padding-top:200px;  
   width:100%;
   bottom:55%; 
-  display:block;
-  
-  
+  display:block; 
 }
 
 #flip {
   height:50px;
   overflow:hidden;
-  
 }
 
 #flip > div > div {
@@ -105,25 +100,19 @@ body {
 
 p {
   width:100%;
-  bottom:30px;
+  bottom:40px;
   font-size:14px;
   color:#ffffff;
   margin-top:200px;
 }
 .a{
-  margin: 5px; 
+  margin: 0px; 
 }
-header img{
-    float: left;
-    margin-right: 10px;
-    width: 7%;
-}
-
 .navigation-menu__bars::before, .navigation-menu__bars::after, .navigation-menu__bars {
   cursor: pointer;
   border-radius: 1px;
-  height: 2px;
-  width: 25px;
+  height: 4px;
+  width: 30px;
   background: #fff;
   position: absolute;
   left: 0;
@@ -141,7 +130,7 @@ header img{
   transition: transform 0.3s 0.3s;
 }
 .navigation-menu::before {
-  background: #101011;
+  background-image: url(https://img.freepik.com/free-vector/abstract-blue-light-pipe-speed-zoom-black-background-technology_1142-9980.jpg?size=626&ext=jpg&ga=GA1.1.1413502914.1696550400&semt=ais);
   content: "";
   height: 400%;
   left: 50%;
@@ -231,8 +220,9 @@ header img{
   list-style-type: none;
 }
 .menu-list__item {
+  text-align: left;
   width: auto;
-  margin: 35px 0;
+  margin: 25px 10px;
   opacity: 0;
   transition: opacity 0.5s 0.5s;
 }
@@ -245,7 +235,7 @@ header img{
   .navigation-menu::before {
     width: 110%;
   }
-  footer { position: static; }
+  
 }
 @media only screen and (max-width: 480px) {
   .navigation-menu  {
@@ -256,4 +246,9 @@ header img{
   .navigation-menu::before {
     transform: translate(-50%, -50%) rotate(45deg);
   }
+}
+a{
+  text-decoration: underline;
+  color: white;
+  text-decoration-color:rgb(255, 115, 0);
 }
