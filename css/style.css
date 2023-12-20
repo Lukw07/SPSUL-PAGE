@@ -36,7 +36,7 @@ body {
   bottom:55%; 
   display:block; 
 }
-
+  
 #flip {
   height: 60px;
   display: flex;
@@ -45,6 +45,7 @@ body {
   overflow: hidden;
   gap: 45px;
 }
+
 #flip > div {
   width: 300px;
   height: 45px;
@@ -53,50 +54,22 @@ body {
   align-items: center;
   transition-duration: 10s;
 }
-
-#flip > div > div {
-  color: #fff;
+#flip > div > h1 {
+  margin: 0;
+  color:#fff;
+  font-size: 80%;
   padding: 4px 12px;
-  height: 45px;
-  margin-bottom: 45px;
-  display: inline-block;
-  
-}
-#flip  div:first-child {
-  animation: show 15s linear infinite;
-}
-#flip div:nth-child(a) div {
-  background: #42c58a;  
-  
 }
 
-#flip div:nth-child(b) div {
-  background: #4ec7f3;  
-  
-}
+#a { background:#42c58a; }
+#b { background:#4ec7f3; }
+#c { background:#DC143C; }
+#d { background:#bfafc3; }
+#e { background:#aa44be; }
+#f { background:#000000; }
+#g { background:#9647a6; }
 
-#flip div:nth-child(c) div {
-  background: #DC143C;
-}
 
-#flip div:nth-child(d) div {
-  background: orange;
-}
-
-#flip div:nth-child(e) div {
-  background: blue;
-  
-}
-
-#flip div:nth-child(f) div {
-  background: yellow;
- 
-}
-
-#flip div:nth-child(7) div {
-  background: black;
-  
-}
 p {
   width:100%;
   bottom:40px;
