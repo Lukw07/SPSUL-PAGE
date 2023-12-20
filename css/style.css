@@ -1,6 +1,5 @@
 *{
   font-family: 'Silkscreen', sans-serif;
-  box-sizing: border-box;
 }
 html {
   font-size: 62.5%;
@@ -18,6 +17,8 @@ body {
   background-image: url(https://i.pinimg.com/originals/47/ab/8a/47ab8a861f62ec45c7c2eea318883171.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
+  height: 100vh;
   display: block;
   margin:0px;
   text-align:center;
@@ -38,7 +39,9 @@ body {
 }
   
 #flip {
-  height: 60px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 45px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -47,12 +50,12 @@ body {
 }
 
 #flip > div {
-  width: 300px;
+  width: auto;
   height: 45px;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition-duration: 10s;
+  transition-duration: 2s;
 }
 #flip > div > h1 {
   margin: 0;
