@@ -15,7 +15,7 @@ b{
   text-decoration: underline;
 }
 body {
-  background-image: url(https://cdn.wallpapersafari.com/64/2/I9VaUA.gif);
+  background-image: url(https://i.pinimg.com/originals/47/ab/8a/47ab8a861f62ec45c7c2eea318883171.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   display: block;
@@ -29,7 +29,7 @@ body {
 #container {
   color:#ffffff;
   text-transform: uppercase;
-  font-size:36px;
+  font-size:30px;
   font-weight:bold;
   padding-top:200px;  
   width:100%;
@@ -38,8 +38,20 @@ body {
 }
 
 #flip {
-  height:50px;
-  overflow:hidden;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  gap: 45px;
+}
+#flip > div {
+  width: 300px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-duration: 10s;
 }
 
 #flip > div > div {
@@ -51,32 +63,32 @@ body {
   
 }
 #flip  div:first-child {
-  animation: show 10s linear infinite;
+  animation: show 15s linear infinite;
 }
-#flip div:nth-child(1) div {
+#flip div:nth-child(a) div {
   background: #42c58a;  
   
 }
 
-#flip div:nth-child(2) div {
+#flip div:nth-child(b) div {
   background: #4ec7f3;  
   
 }
 
-#flip div:nth-child(3) div {
+#flip div:nth-child(c) div {
   background: #DC143C;
 }
 
-#flip div:nth-child(4) div {
+#flip div:nth-child(d) div {
   background: orange;
 }
 
-#flip div:nth-child(5) div {
+#flip div:nth-child(e) div {
   background: blue;
   
 }
 
-#flip div:nth-child(6) div {
+#flip div:nth-child(f) div {
   background: yellow;
  
 }
@@ -85,18 +97,6 @@ body {
   background: black;
   
 }
-
-@keyframes show {
-  0% {margin-top:-270px;}
-  5% {margin-top:-180px;}
-  33% {margin-top:-180px;}
-  38% {margin-top:-90px;}
-  66% {margin-top:-90px;}
-  71% {margin-top:0px;}
-  99.99% {margin-top:0px;}
-  100% {margin-top:-270px;}
-}
-
 p {
   width:100%;
   bottom:40px;
@@ -231,9 +231,11 @@ p {
     min-width: 240px;
     width: 80%;
     
+    
   }
   .navigation-menu::before {
     width: 110%;
+    
   }
   
 }
@@ -247,6 +249,7 @@ p {
   }
   .navigation-menu::before {
     transform: translate(-50%, -50%) rotate(45deg);
+    background-color: black;
   }
   .menu-list__item{
     text-align: center;
