@@ -1,0 +1,164 @@
+:root { --time: 0.707s; }
+
+.cards {
+  display: grid;
+}
+
+.card {
+  perspective: 40rem;
+}
+
+.card-body {
+  display: flex;
+  transform-style: preserve-3d;
+  transition: var(--time) transform;
+
+  .card:hover &, .card:focus & {
+    transform: rotateX(-180deg);
+  }
+}
+
+.card-front, .card-back {
+  backface-visibility: hidden;
+  min-width: 100%;
+}
+
+.card-back {
+  transform: rotateX(-180deg) translate(-100%, 0);
+}
+
+/* Make it Pretty */
+
+body {
+  color:white;
+  line-height: 1.3;
+  font-family: 'Silkscreen', sans-serif;
+}
+
+.cards {
+  z-index: -2;
+  grid-gap: 1.5rem;
+  grid-auto-rows: 1fr;
+  padding: 3rem;
+  background: rgb(0, 0, 0);
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+}
+
+.card {
+  
+  display: flex;
+  transition: z-index, transform calc(var(--time) / 4);
+  transition-delay: var(--time), 0s;
+  text-decoration: none;
+  color: inherit;
+  z-index: 0;
+  
+  &:hover {
+    transition-delay: 0s;
+    z-index: 1;
+  }
+
+  &:active {
+    transform: scale(0.975);
+  }
+}
+
+.card-body {
+  border-radius: 0.25rem;
+  flex: 1;
+}
+
+.card-front, .card-back {
+  display: flex;
+  align-items: center;
+  background-color: rgb(179, 5, 5);
+  box-sizing: border-box;
+  padding: 1.5rem;
+  border-radius: 0.25rem;
+}
+
+.card-front {
+  font-size: 1.5rem;
+}
+
+.shadow {
+  box-shadow: 0 -1px 1px rgba(0,0,0,0.04), 
+              0 2px 2px rgba(0,0,0,0.04), 
+              0 4px 4px rgba(0,0,0,0.04), 
+              0 8px 8px rgba(0,0,0,0.04),
+              0 16px 16px rgba(0,0,0,0.04); 
+}
+#menu__toggle {
+  opacity: 0;
+}
+#menu__toggle:checked + .menu__btn > span {
+  transform: rotate(45deg);
+}
+#menu__toggle:checked + .menu__btn > span::before {
+  top: 0;
+  transform: rotate(0deg);
+}
+#menu__toggle:checked + .menu__btn > span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+#menu__toggle:checked ~ .menu__box {
+  left: 0 !important;
+}
+.menu__btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  z-index: 1;
+}
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+  transition-duration: .25s;
+
+}
+.menu__btn > span::before {
+  content: '';
+  top: -8px;
+}
+.menu__btn > span::after {
+  content: '';
+  top: 8px;
+}
+.menu__box {
+  z-index: 2;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 300px;
+  height: 100%;
+  margin: 0;
+  padding: 80px 0;
+  list-style: none;
+  background:rgb(255, 115, 0); 
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
+  transition-duration: .25s;
+}
+.menu__item {
+  display: block;
+  padding: 12px 24px;
+  color: #000000;
+  font-family: 'Silkscreen', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  transition-duration: .25s;
+}
+.menu__item:hover {
+  background-color: black;
+  color: white;
+}

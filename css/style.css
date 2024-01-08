@@ -1,3 +1,6 @@
+*{
+  font-family: 'Silkscreen', sans-serif;
+}
 html {
   font-family: 'Silkscreen', sans-serif;
   font-size: 62.5%;
@@ -11,7 +14,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   margin: 0px;
   text-align:center;
