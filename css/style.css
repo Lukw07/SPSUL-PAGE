@@ -1,13 +1,6 @@
-*{
-  font-family: 'Silkscreen', sans-serif;
-}
 html {
+  font-family: 'Silkscreen', sans-serif;
   font-size: 62.5%;
-}
-h1{
-  color:white;
-  top: 10%;
-  text-align:center;
 }
 b{
   color:rgb(255, 115, 0);
@@ -18,29 +11,40 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 100%;
-  display: block;
-  margin:0px;
+  height: 100vh;
+  width: 100vw;
+  margin: 0px;
   text-align:center;
   color: #fff;
   font-size: 2.4rem;
 }
+#welcome {
+  font-size: 8vh;
+  color:white;
+  top: 10%;
+  text-align: center;
+}
 #container {
   color:#ffffff;
-  text-transform: uppercase;
-  font-size:30px;
-  font-weight:bold;
-  padding-top:200px;  
-  width:100%;
-  bottom:55%; 
-  display:block; 
+  padding-top: 200px;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
 }
-  
+#container > div {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 60px;
+  text-transform: uppercase;
+  font-weight:bold;
+}
 #flip {
   margin-top: 20px;
   margin-bottom: 20px;
   height: 45px;
+  width: auto;
   display: flex;
+  grid-auto-columns: auto;
   align-items: center;
   flex-direction: column;
   overflow: hidden;
@@ -48,8 +52,9 @@ body {
 }
 
 #flip > div {
-  width: auto;
   height: 45px;
+  width: auto;
+  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -116,6 +121,7 @@ body {
   top: 8px;
 }
 .menu__box {
+  
   display: block;
   position: fixed;
   top: 0;
