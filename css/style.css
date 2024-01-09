@@ -10,19 +10,13 @@ b{
   text-decoration: underline;
 }
 body {
-  background-image: url(https://i.pinimg.com/originals/47/ab/8a/47ab8a861f62ec45c7c2eea318883171.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-color: black;
   height: 100%;
   width: 100vw;
   margin: 0px;
   text-align:center;
   color: #fff;
   font-size: 2.4rem;
-}
-img{
-  width: 20%;
 }
 #welcome {
   font-size: 8vh;
@@ -142,16 +136,34 @@ img{
   transition-duration: .25s;
 }
 .menu__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  gap: 5px;
+  transition-duration: .5s;
+}
+.menu__icon {
+  width: 10%;
+  height: auto;
+  transition-duration: .5s;
+}
+.menu__text {
   display: block;
-  padding: 12px 24px;
   color: #000000;
   font-family: 'Silkscreen', sans-serif;
   font-size: 20px;
   font-weight: 600;
   text-decoration: none;
-  transition-duration: .25s;
+  transition-duration: .5s;
 }
-.menu__item:hover {
-  background-color: black;
-  color: white;
+.menu__item:hover { background-color: black; }
+.menu__item:hover > .menu__text { color: white; }
+.menu__item:hover > .menu__icon { filter: invert(100%); }
+.bvambient_particle
+{
+	position: absolute;
+	pointer-events: none;
+	transition: top linear, left linear;
+ 
 }
