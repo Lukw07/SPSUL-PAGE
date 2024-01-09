@@ -83,4 +83,4 @@
   .menu__item:hover { background-color: black; }
   .menu__item:hover > .menu__text { color: white; }
   .menu__item:hover > .menu__icon { filter: invert(100%); }
-  
+ 
