@@ -39,36 +39,145 @@
           </li>
         </ul>
       </div>
-      <h1>Doděláváme!!</h1>
-      <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
-      <script>function showTime(){
-        var date = new Date();
-        var h = date.getHours(); // 0 - 23
-        var m = date.getMinutes(); // 0 - 59
-        var s = date.getSeconds(); // 0 - 59
-        var session = "AM";
-        
-        if(h == 0){
-            h = 12;
+      <h1 class="text-center" id="currentTime"></h1>
+    <h1 class="text-center">Rozvrh hodin</h1>
+    <table class="table text-center">
+        <thead>
+            <tr id="day-head"></tr>
+        </thead>
+        <tbody>
+            <tr id="day-body"></tr>
+        </tbody>
+    </table>
+    <script>
+      const timeTable = [{type: "lesson", start: [8, 0], end: [8, 45]},
+                   {type: "break", start: [8, 45], end: [8, 55]},
+                   {type: "lesson", start: [8, 55], end: [9, 40]},
+                   {type: "break", start: [9, 40], end: [9, 50]},
+                   {type: "lesson", start: [9, 50], end: [10, 35]},
+                   {type: "break", start: [10, 35], end: [10, 50]},
+                   {type: "lesson", start: [10, 50], end: [11, 35]},
+                   {type: "break", start: [11, 35], end: [11, 45]},
+                   {type: "lesson", start: [11, 45], end: [12, 30]},
+                   {type: "break", start: [12, 30], end: [12, 40]},
+                   {type: "lesson", start: [12, 40], end: [13, 25]},
+                   {type: "break", start: [13, 25], end: [13, 35]},
+                   {type: "lesson", start: [13, 35], end: [14, 20]}];
+
+const TVY = {shortname: "TVY", fullname: "Technické vybavení", teacher: "Mgr. Kamil Balín"};
+const ZPV = {shortname: "ZPV", fullname: "Základy přírodních věd", teacher: "Mgr. Luděk Čtvrtečka"};
+const DEJ = {shortname: "DEJ", fullname: "Dějepis", teacher: "Mgr. Jan Horáček"};
+const CJL = {shortname: "CJL", fullname: "Český jazyk a literatura", teacher: "Mgr. Monika Brychtová"};
+const ANJ = {shortname: "ANJ", fullname: "Anglický jazyk", teacher: "Bc. Talia Afzaal"};
+const OBN = {shortname: "OBN", fullname: "Občanská nauka", teacher: "Bc. Radek Voldán"};
+const FYZ = {shortname: "FYZ", fullname: "Fyzika", teacher: "Ing. Michal Hoffmann"};
+const WEA = {shortname: "WEA", fullname: "Webové aplikace", teacher: "Bc. Miroslav Douda"};
+const APS = {shortname: "APS", fullname: "Aplikační software", teacher: "Ing. Vendula Poláčková"};
+const TEV = {shortname: "TEV", fullname: "Tělesná výchova", teacher: "Mgr. Luděk Čtvrtečka"};
+const NEJ = {shortname: "NEJ", fullname: "Německý jazyk", teacher: "Mgr. Jan Horáček"};
+const PVA = {shortname: "PVA", fullname: "Programování a vývoj aplikací", teacher: "Bc. Jakub Pokorný"};
+const MAT = {shortname: "MAT", fullname: "Matematika", teacher: "Mgr. Romana Petrnoušková"};
+const DAS = {shortname: "DAS", fullname: "Datové sítě", teacher: "Bc. Jiří Mít"};
+const ALG = {shortname: "ALG", fullname: "Algoritmizace", teacher: "Mgr. Michal Beneš"};
+const WEEKEND = {shortname: "Víkend", fullname: "Víkend", teacher: "Lukáš Poddaný"};
+
+const dayHeadElement = document.getElementById("day-head");
+const dayBodyElement = document.getElementById("day-body");
+const currentTimeElement = document.getElementById("currentTime");
+
+var lastDay = new Date().getDay();
+var dayData = null;
+var evenWeek = true;
+
+//var now = new Date();
+
+function getDaySubjects(evenWeek, day) {
+    if (evenWeek) {
+        switch (day) {
+            case 1: return [[WEA, "S221"], [WEA, "S221"], [MAT, "S229"], [CJL, "S127"], [ANJ, "S119"], [APS, "S221"], [APS, "S221"]];
+            case 2: return [[PVA, "S221"], [PVA, "S221"], [NEJ, "S419"], [ALG, "S119"], [TEV, "SHAL"], [ALG, "S225"], [MAT, "S229"]];
+            case 3: return [[TVY, "S221"], [TVY, "S221"], [ZPV, "S131"], [DEJ, "S419"], [CJL, "S127"], [ANJ, "S119"], [OBN, "S324"]];
+            case 4: return [[MAT, "S229"], [NEJ, "S419"], [APS, "S221"], [APS, "S221"], [CJL, "S127"], [TEV, "SHAL"], [FYZ, "S327"]];
+            case 5: return [[DEJ, "S419"], [MAT, "S229"], [FYZ, "S327"], [TVY, "S221"], [DAS, "S423"], [DAS, "S423"], [ALG, "S225"]];
         }
-        
-        if(h > 12){
-            h = h - 12;
-            session = "PM";
+    } else {
+        switch (day) {
+            case 1: return [[WEA, "S221"], [WEA, "S221"], [MAT, "S229"], [CJL, "S127"], [ANJ, "S119"], [APS, "S221"], [APS, "S221"]];
+            case 2: return [[PVA, "S221"], [PVA, "S221"], [NEJ, "S419"], [ALG, "S119"], [TEV, "SHAL"], [ALG, "S225"], [MAT, "S229"]];
+            case 3: return [[TVY, "S221"], [TVY, "S221"], [ZPV, "S131"], [DEJ, "S419"], [CJL, "S127"], [ANJ, "S119"], [OBN, "S324"]];
+            case 4: return [[MAT, "S229"], [NEJ, "S419"], [APS, "S221"], [APS, "S221"], [CJL, "S127"], [TEV, "SHAL"], [FYZ, "S327"]];
+            case 5: return [[DEJ, "S419"], [MAT, "S229"], [FYZ, "S327"], [TVY, "S221"], [DAS, "S423"], [DAS, "S423"], [ALG, "S225"]];
         }
-        
-        h = (h < 10) ? "0" + h : h;
-        m = (m < 10) ? "0" + m : m;
-        s = (s < 10) ? "0" + s : s;
-        
-        var time = h + ":" + m + ":" + s + " " + session;
-        document.getElementById("MyClockDisplay").innerText = time;
-        document.getElementById("MyClockDisplay").textContent = time;
-        
-        setTimeout(showTime, 1000);
-        
     }
-    
-    showTime();</script>
-</body>
-</html>
+
+    return [[WEEKEND, "doma"]]
+}
+
+function updateSchedule() {
+    var now = new Date();
+    if (lastDay != now.getDay()) {
+        dayData = getDaySubjects(evenWeek, now.getDay());
+        loadDay();
+        lastDay = now.getDay();
+    }
+
+    for (let i = 0; i < (dayData.length*2-1); i++) {
+        var start = new Date(now).setHours(timeTable[i].start[0], timeTable[i].start[1]);
+        var end = new Date(now).setHours(timeTable[i].end[0], timeTable[i].end[1]);
+
+        if (now >= start && now < end) highlightCurrent(i+1, timeTable[i].type == "lesson" ? "#87faa6" : "#faf487");
+    }
+
+    currentTimeElement.textContent = "Current Time: " + formatTime(now.getDay(), now.getHours(), now.getMinutes());
+}
+
+function formatTime(day, hours, minutes) {
+    var formattedHours = hours < 10 ? "0" + hours : hours;
+    var formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
+    return formattedHours + ":" + formattedMinutes + " day: " + day;
+}
+
+function highlightCurrent(current, color) {
+    console.log(current);
+    for (let i = 0; i < (dayData.length*2-1); i++) {
+        if (i+1 == current) {
+            dayBodyElement.children[i].style.backgroundColor = color;
+        } else {
+            dayBodyElement.children[i].style.backgroundColor = "";
+        }
+    }
+}
+
+function loadDay() {
+    dayHeadElement.innerHTML = "";
+    dayBodyElement.innerHTML = "";
+
+    for (let i = 0; i < dayData.length; i++) {
+        if (i != 0) {
+            var tdHeadBreak = document.createElement("td");
+            tdHeadBreak.textContent = "";
+            dayHeadElement.appendChild(tdHeadBreak);
+        }
+        var tdHeadLesson = document.createElement("td");
+        tdHeadLesson.innerHTML = "<h4>" + (i+1) + "</h4>";
+        dayHeadElement.appendChild(tdHeadLesson);
+
+        if (i != 0) {
+            var tdBodyBreak = document.createElement("td");
+            tdBodyBreak.textContent = "";
+            dayBodyElement.appendChild(tdBodyBreak);
+        }
+        var tdBodyLesson = document.createElement("td");
+        tdBodyLesson.innerHTML = "<h4>" + dayData[i][0].shortname + "</h4>" +
+                                 "<h6>" + dayData[i][1] + "</h6>";
+        dayBodyElement.appendChild(tdBodyLesson);
+    }
+}
+
+dayData = getDaySubjects(evenWeek, new Date().getDay());
+loadDay();
+updateSchedule();
+
+setInterval(updateSchedule, 1000);
+
+    </script>
