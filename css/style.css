@@ -5,6 +5,12 @@ html {
   font-family: 'Silkscreen', sans-serif;
   font-size: 62.5%;
 }
+#background {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  z-index: -1;
+}
 b{
   color:rgb(255, 115, 0);
   text-decoration: underline;
