@@ -2,7 +2,7 @@
   font-family: 'Silkscreen', ;
 }
 body{
-  background-color: rgb(0, 0, 0);
+  background: url(../img/a7ae4d2e-a83f-4522-b52b-0fba335b58e4.jpeg);
 }
 :root { --time: 0.707s; }
 
@@ -202,6 +202,10 @@ p{
 .menu__item:hover > .menu__icon { filter: invert(100%); }
 .hamburger-menu{
   background-color: rgb(39, 39, 39);
+}
+.accordion-button{
+  text-align: center;
+  background-color: orange;
 }
 .accordion-body{
   background-color: black;
