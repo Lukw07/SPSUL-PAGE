@@ -203,10 +203,7 @@ p{
 .hamburger-menu{
   background-color: rgb(39, 39, 39);
 }
-.honza{
-  margin: 5px;
-  background-color: orange;
-  padding: 5px;
-  color:rgb(0, 0, 0);
-  text-align: center;
+.accordion-body{
+  background-color: black;
 }
+
